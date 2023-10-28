@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "blitz dev",
-    "build": "next build",
+    "build": "blitz build",
     "start": "blitz start"
   },
   "prisma": {
