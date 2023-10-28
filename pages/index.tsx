@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useCurrentUser } from "app/users/hooks/useCurrentUser";
 import logout from "app/auth/mutations/logout";
 import { useMutation } from "@blitzjs/rpc";
-import { Routes, BlitzPage } from "@blitzjs/next";
 import { Suspense } from "react";
 
 const UserInfo = () => {
@@ -29,12 +28,12 @@ const UserInfo = () => {
   } else {
     return (
       <>
-        <Link href={Routes.SignupPage()} passHref>
+        <Link href="/auth/signup" passHref>
           <a className="button small">
             <strong>Sign Up</strong>
           </a>
         </Link>
-        <Link href={Routes.LoginPage()} passHref>
+        <Link href="/auth/login" passHref>
           <a className="button small">
             <strong>Login</strong>
           </a>
