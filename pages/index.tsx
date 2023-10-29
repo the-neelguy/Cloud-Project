@@ -47,7 +47,7 @@ export default function Index() {
   return (
     <>
       <Head>
-        <title>CSE2035 | Home</title>
+        <title>CLOUD PROJECT | Home</title>
       </Head>
       <Navbar color="black" />
       <div className="relative h-full overflow-hidden bg-indigo-900">
@@ -62,7 +62,7 @@ export default function Index() {
               Real Time Agricultural System for Farmers
             </p>
             <p className="mt-6 flex max-w-lg flex-col items-center text-center text-xl font-semibold text-white">
-              CSE2035 Communication for CPS <br />J Component
+              CLOUD COMPUTING <br />J Component
             </p>
             <Suspense fallback={<div>Loading...</div>}>
               <UserInfo />
@@ -70,10 +70,8 @@ export default function Index() {
             <p className="mt-6 flex max-w-lg flex-col items-center text-center text-3xl font-semibold text-white">
               Presented By <br />
               <div className="p-5 flex flex-row items-center justify-center gap-4 w-full font-bold">
-                <p className="text-xl">Siddharth Suresh 20BPS1042</p>
-                <p className="text-xl">Prantik Dhara 20BPS1083</p>
-                <p className="text-xl">Kanishka Ghosh 20BPS1125</p>
-                <p className="text-xl">Siddharth <br/> M 20BPS1007</p>
+                <p className="text-xl">Abhraneel Dey 20BPS1031</p>
+                <p className="text-xl">Avni Ahuja 20BPS1043</p>
               </div>
             </p>
             <div className="p-5 flex flex-row gap-5 w-xl justify-between">
@@ -153,7 +151,7 @@ export default function Index() {
             </p>
           </div>
 
-          <ul className="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-2">
+          {/* <ul className="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-2">
             <li className="p-8 shadow-xl rounded-xl">
               <p className="text-3xl font-semibold">
                 Implemented the BackEnd API using Fastify
@@ -231,7 +229,7 @@ export default function Index() {
                 The Tasks in ESP32 is implemented using the ESP32 SDK{" "}
               </p>
             </li>
-          </ul>
+          </ul> */}
         </div>
       </section>
       <div>
