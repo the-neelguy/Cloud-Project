@@ -3,6 +3,7 @@ import { gSSP } from "app/blitz-server";
 import { SessionContext } from "@blitzjs/auth";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { Card, LineChart, Title } from "@tremor/react";
 
 type Props = {
   userId: unknown;
@@ -14,10 +15,20 @@ const fetchAPI = async (): Promise<{
   count: number;
 }> => {
   const response = await axios.get(
-    `https://azki8at90f.execute-api.us-east-1.amazonaws.com`
+    `/api/`
   );
   return response.data;
 };
+
+const blynkAPI = async (): Promise<{
+  items: string;
+  count: number;
+}> => {
+  const response = await axios.get(
+    `https://blynk.cloud/external/api/get?token=ifvKiQf0aujDNSDcnSxPVuxSwWN5v3Vk&dataStreamId=1`
+  );
+  return response.data;
+}
 
 export const getServerSideProps = gSSP<Props>(async ({ ctx }) => {
   const { session } = ctx;
@@ -58,35 +69,55 @@ export default function Home() {
   const { data } = useQuery({
     queryKey: ["api"],
     queryFn: () => fetchAPI(),
-    refetchInterval: 5000,
+    refetchInterval: 1000,
     suspense: false,
+  });
+
+
+  const formattedData = data?.items.map((item) => {
+    return {
+      id: new Date(item.id).toISOString(),
+      soil: item.soil,
+    };
+  }).sort((a, b) => {
+    return new Date(a.id).getTime() - new Date(b.id).getTime();
+  })
+
+
+
+  useQuery({
+    queryKey: ["blynk"],
+    queryFn: () => blynkAPI(),
+    refetchInterval: 1000,
+    suspense: false,
+    async onSettled(data) {
+      console.log(data);
+      await fetch("/api/soil/",{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          'Access-Control-Allow-Origin': 'http://localhost:3000'
+        },
+        body: JSON.stringify({
+          soil: data,
+          id: (new Date()).toISOString(),
+        }),
+      })
+    },
   });
   return (
     <>
-      {motorState}
-      <table>
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Count</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data?.items
-            .sort((a, b) => a.id - b.id)
-            .map((item) => (
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td style={{ color: item.color }}>{item.soil}</td>
-                <td>{item.state}</td>
-              </tr>
-            ))}
-          <tr>
-            <td>Total</td>
-            <td>{data?.count}</td>
-          </tr>
-        </tbody>
-      </table>
+      <Card>
+        <Title>Soil Moisture Readings</Title>
+        <LineChart
+          className="h-72 mt-4"
+          data={formattedData??[]}
+          index="id"
+          categories={["soil"]}
+          colors={["blue"]}
+          yAxisWidth={30}
+        />
+      </Card>
     </>
   );
 }
