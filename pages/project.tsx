@@ -30,24 +30,24 @@ const blynkAPI = async (): Promise<{
   return response.data;
 }
 
-export const getServerSideProps = gSSP<Props>(async ({ ctx }) => {
-  const { session } = ctx;
-  if (!session.userId) {
-    return {
-      props: {
-        userId: "",
-        publicData: ""
-      }
-    };
-  } else {
-    return {
-      props: {
-        userId: session.userId,
-        publicData: session.$publicData,
-      },
-    };
-  }
-});
+// export const getServerSideProps = gSSP<Props>(async ({ ctx }) => {
+//   const { session } = ctx;
+//   if (!session.userId) {
+//     return {
+//       props: {
+//         userId: "",
+//         publicData: ""
+//       }
+//     };
+//   } else {
+//     return {
+//       props: {
+//         userId: session.userId,
+//         publicData: session.$publicData,
+//       },
+//     };
+//   }
+// });
 
 export default function Home() {
   const [motorState, setMotorState] = useState("OFF");
