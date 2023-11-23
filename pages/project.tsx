@@ -34,10 +34,10 @@ export const getServerSideProps = gSSP<Props>(async ({ ctx }) => {
   const { session } = ctx;
   if (!session.userId) {
     return {
-      redirect: {
-        destination: "/auth/login",
-        permanent: false,
-      },
+      props: {
+        userId: "",
+        publicData: ""
+      }
     };
   } else {
     return {
