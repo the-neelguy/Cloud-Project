@@ -59,7 +59,7 @@ export default function Index() {
         <div className="container relative z-10 mx-auto my-24 flex w-4/5 items-center rounded-lg border-4 border-white py-16 md:my-32">
           <div className="relative z-10 flex w-full flex-col items-center justify-between gap-4">
             <p className="flex flex-col items-center text-center text-6xl font-semibold text-white md:text-8xl pb-4">
-              Smart Irrigation System
+              Real Time Agricultural System for Farmers
             </p>
             <p className="mt-6 flex max-w-lg flex-col items-center text-center text-xl font-semibold text-white">
               CLOUD COMPUTING <br />J Component
@@ -70,11 +70,11 @@ export default function Index() {
             <p className="mt-6 flex max-w-lg flex-col items-center text-center text-3xl font-semibold text-white">
               Presented By <br />
               <div className="p-5 flex flex-row items-center justify-center gap-4 w-full font-bold">
-                <p className="text-xl font-bold">Abhraneel Dey 20BPS1031</p>
-                <p className="text-xl font-bold">Avni Ahuja 20BPS1043</p>
+                <p className="text-xl">Abhraneel Dey 20BPS1031</p>
+                <p className="text-xl">Avni Ahuja 20BPS1043</p>
               </div>
             </p>
-            {/* <div className="p-5 flex flex-row gap-5 w-xl justify-between">
+            <div className="p-5 flex flex-row gap-5 w-xl justify-between">
               <button
                 type="button"
                 className="shadow-white/50 py-2 px-4 flex justify-center items-center  bg-gray-600 hover:bg-gray-700 focus:ring-gray-500 focus:ring-offset-gray-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
@@ -125,11 +125,20 @@ export default function Index() {
                 </svg>
                 API & Microcontroller Code
               </button>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
-      {/* <section className="text-white bg-[#051367]">
+      <section className="bg-black h-full">
+        <div className="container mx-auto p-5">
+          <div className="flex flex-wrap justify-center">
+            <video className="w-[75%]" loop autoPlay muted>
+              <source src="/Project_Trim.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      </section>
+      <section className="text-white bg-[#051367]">
         <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
           <div className="max-w-xl">
             <h2 className="text-4xl font-bold sm:text-6xl text-center sm:text-left">
@@ -142,7 +151,7 @@ export default function Index() {
             </p>
           </div>
 
-          <ul className="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-2">
+          {/* <ul className="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-2">
             <li className="p-8 shadow-xl rounded-xl">
               <p className="text-3xl font-semibold">
                 Implemented the BackEnd API using Fastify
@@ -220,12 +229,12 @@ export default function Index() {
                 The Tasks in ESP32 is implemented using the ESP32 SDK{" "}
               </p>
             </li>
-          </ul>
+          </ul> */}
         </div>
-      </section> */}
+      </section>
       <div>
         <aside>
-          <div className="px-4 py-16 mx-auto sm:px-6 lg:px-8 bg-[#000B49]">
+          <div className="px-4 py-16 mx-auto max-w-screen-2xl sm:px-6 lg:px-8 bg-[#000B49]">
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               <div className="p-8 shadow-md shadow-white text-center text-white bg-[#01024E] sm:col-span-2 sm:p-16 lg:py-24 rounded-lg">
                 <div className="max-w-lg mx-auto space-y-8">
